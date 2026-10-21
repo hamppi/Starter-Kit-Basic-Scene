@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdl4hvrn3nxf2"]
+[gd_scene load_steps=8 format=3 uid="uid://cdl4hvrn3nxf2"]
 
 [ext_resource type="PackedScene" uid="uid://basbm4qaiq6k5" path="res://sample/Mini Arena/Models/GLB format/column.glb" id="1_c7oak"]
 [ext_resource type="Environment" uid="uid://cm77bbr0io118" path="res://scenes/main-environment.tres" id="1_x8oc8"]
@@ -7,13 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://dp4f8paatagro" path="res://sample/Mini Arena/Models/GLB format/bricks.glb" id="5_a3l1l"]
 [ext_resource type="PackedScene" uid="uid://nl2p4gn2t5ke" path="res://sample/Mini Arena/Models/GLB format/statue.glb" id="6_drebv"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+size = Vector3(100, 0.001, 100)
+
 [node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_x8oc8")
 
-[node name="Floor" type="CSGBox3D" parent="."]
-size = Vector3(100, 0.001, 100)
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_floor")
 
 [node name="View" type="Node3D" parent="."]
 transform = Transform3D(0.86602503, -0.21130913, 0.4531536, 0, 0.90630776, 0.42261803, -0.4999998, -0.36599815, 0.78488505, 0, 0.45, 0)
